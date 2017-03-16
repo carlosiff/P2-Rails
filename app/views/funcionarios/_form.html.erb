@@ -42,17 +42,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :dtadmissao %><br>
+    <%= f.label "Data de Admissão" %><br>
     <%= f.text_field :dtadmissao , class: 'datepicker' %>
   </div>
   
-  <div>
-    <%= f.label :foto %>
-    <%= image_tag @funcionario.foto_url, class: 'foto' if @funcionario.foto? %>
-    <%= f.file_field :foto, label: 'Foto' , input_html: {accept: ('application/jpg') } %>
-  <br/>
-
-  </div>
+  
   <div class="actions">
     <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
     <%= link_to ' Voltar', funcionarios_path , class: "btn btn-default " %>
@@ -60,4 +54,9 @@
   </div>
   <% end %>
 
-  
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
+  $('#matricula').inputmask("9999.9.999.9999");
+  });
+  </script>  

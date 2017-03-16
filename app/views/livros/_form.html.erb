@@ -36,7 +36,15 @@
     <%= f.text_field :preco %>
   </div>
 
+  <div>
+    <%= f.label :capa %>
+    <%= image_tag @livro.capa_url, class: 'capa' if @livro.capa? %>
+    <%= f.file_field :capa, label: 'Capa' , input_html: {accept: ('application/jpg') } %>
+    <br/>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+    <%= link_to ' Voltar', livros_path , class: "btn btn-default " %>
   </div>
 <% end %>

@@ -10,6 +10,7 @@
       <th>Autor</th>
       <th>Editora</th>
       <th>Preco</th>
+      <th>Capa</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= livro.autor %></td>
         <td><%= livro.editora %></td>
         <td><%= livro.preco %></td>
+        <td><%= image_tag livro.capa, height:'80', width:'62' %></td> 
         <td><%= link_to 'Show', livro %></td>
         <td><%= link_to 'Edit', edit_livro_path(livro) %></td>
         <td><%= link_to 'Destroy', livro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
