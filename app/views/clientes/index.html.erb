@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Clientes</h1>
+<hr/>
+<%= render 'formbusca' %>
+<hr/>
 
 <table>
   <thead>
@@ -35,3 +38,5 @@
 <br>
 
 <%= link_to 'New Cliente', new_cliente_path %>
+<%= will_paginate @funcionarios, previous_label: "Anterior", next_label: "Próxima" %>
+<br/>

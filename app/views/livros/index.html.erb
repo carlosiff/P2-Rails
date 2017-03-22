@@ -2,6 +2,10 @@
 
 <h1>Livros</h1>
 
+  <hr/>
+  <%= render 'formbusca' %>
+  <hr/>
+
 <table>
   <thead>
     <tr>
@@ -35,3 +39,5 @@
 <br>
 
 <%= link_to 'New Livro', new_livro_path %>
+<%= will_paginate @livros, previous_label: "Anterior", next_label: "Próxima" %>
+<br/>

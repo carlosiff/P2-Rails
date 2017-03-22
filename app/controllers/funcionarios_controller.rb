@@ -7,6 +7,16 @@ class FuncionariosController < ApplicationController
     @funcionarios = Funcionario.all
   end
 
+  def index
+    @pnome = params[:pnome]
+    filtro = "1=1"
+    @funcionarios = Funcionario.where(filtro).order("nome").paginate(page:
+      params[:page], per_page: 3)
+    if not(@pnome.nil?)
+      filtro = filtro + " and nome like '%"+@pnome+"%'"
+    end  
+  end
+
   # GET /funcionarios/1
   # GET /funcionarios/1.json
   def show

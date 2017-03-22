@@ -1,12 +1,24 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /clientes
   # GET /clientes.json
   def index
     @clientes = Cliente.all
   end
 
+  def index
+    @pnome = params[:pnome]
+    filtro = "1=1"
+    @clientes = Cliente.where(filtro).order("nome").paginate(page:
+      params[:page], per_page: 3)
+    if not(@pnome.nil?)
+      filtro = filtro + " and nome like '%"+@pnome+"%'"
+    end  
+  end
+  
   # GET /clientes/1
   # GET /clientes/1.json
   def show

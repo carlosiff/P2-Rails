@@ -7,6 +7,16 @@ class LivrosController < ApplicationController
     @livros = Livro.all
   end
 
+  def index
+    @ptitulo = params[:ptitulo]
+    filtro = "1=1"
+    @livros = Livro.where(filtro).order("titulo").paginate(page:
+      params[:page], per_page: 3)
+    if not(@ptitulo.nil?)
+      filtro = filtro + " and nome like '%"+@ptitulo+"%'"
+    end  
+  end
+
   # GET /livros/1
   # GET /livros/1.json
   def show

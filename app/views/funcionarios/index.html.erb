@@ -2,6 +2,10 @@
 
 <h1>Funcionarios</h1>
 
+  <hr/>
+  <%= render 'formbusca' %>
+  <hr/>
+
 <table>
   <thead>
     <tr>
@@ -25,10 +29,10 @@
         <td><%= funcionario.telefone %></td>
         <td><%= funcionario.email %></td>
         <td><%= funcionario.cargo %></td>
-         <td><%= funcionario.dtadmissao %></td>
+        <td><%= funcionario.dtadmissao %></td>
         <td><%= link_to 'Show', funcionario %></td>
-        <td><%= link_to 'Edit', edit_funcionario_path(funcionario) %></td>
-        <td><%= link_to 'Destroy', funcionario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to ' ', edit_funcionario_path(funcionario), class: "glyphicon glyphicon-pencil"%></td>
+        <td><%= link_to ' ', funcionario, method: :delete, data: { confirm: 'Are you sure?' }, class:"glyphicon glyphicon-trash" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -37,3 +41,5 @@
 <br>
 
 <%= link_to 'New Funcionario', new_funcionario_path %>
+<%= will_paginate @funcionarios, previous_label: "Anterior", next_label: "Próxima" %>
+<br/>

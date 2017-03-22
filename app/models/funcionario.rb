@@ -1,2 +1,2 @@
-class Funcionario < ApplicationRecord
+class Funcionario < ActiveRecord::Base
 end
