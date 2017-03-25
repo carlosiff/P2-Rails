@@ -26,11 +26,11 @@
         <td><%= livro.titulo %></td>
         <td><%= livro.autor %></td>
         <td><%= livro.editora %></td>
-        <td><%= livro.preco %></td>
+        <td>R$ <%= livro.preco %></td>
         <td><%= image_tag livro.capa, height:'80', width:'62' %></td> 
-        <td><%= link_to 'Show', livro %></td>
-        <td><%= link_to 'Edit', edit_livro_path(livro) %></td>
-        <td><%= link_to 'Destroy', livro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to ' ', livro , class: "glyphicon glyphicon-blackboard" %></td>
+        <td><%= link_to ' ', edit_livro_path(livro) , class: "glyphicon glyphicon-pencil"%></td>
+        <td><%= link_to ' ', livro, method: :delete, data: { confirm: 'Are you sure?' }, class:"glyphicon glyphicon-trash" %></td>
       </tr>
     <% end %>
   </tbody>

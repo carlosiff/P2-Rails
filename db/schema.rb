@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315191855) do
+ActiveRecord::Schema.define(version: 20170325005340) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "clientes", force: :cascade do |t|
     t.string   "matricula"
@@ -21,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170315191855) do
     t.string   "cpf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "livros_id"
+    t.index ["livros_id"], name: "index_clientes_on_livros_id", using: :btree
   end
 
   create_table "funcionarios", force: :cascade do |t|
@@ -46,4 +51,5 @@ ActiveRecord::Schema.define(version: 20170315191855) do
     t.string   "capa"
   end
 
+  add_foreign_key "clientes", "livros", column: "livros_id"
 end
