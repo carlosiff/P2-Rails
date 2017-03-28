@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325005340) do
+ActiveRecord::Schema.define(version: 20170328224905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "autores", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "email"
+    t.string   "editora"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "clientes", force: :cascade do |t|
     t.string   "matricula"
@@ -24,8 +32,6 @@ ActiveRecord::Schema.define(version: 20170325005340) do
     t.string   "cpf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "livros_id"
-    t.index ["livros_id"], name: "index_clientes_on_livros_id", using: :btree
   end
 
   create_table "funcionarios", force: :cascade do |t|
@@ -43,13 +49,13 @@ ActiveRecord::Schema.define(version: 20170325005340) do
   create_table "livros", force: :cascade do |t|
     t.string   "codigo"
     t.string   "titulo"
-    t.string   "autor"
     t.string   "editora"
     t.string   "preco"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "capa"
+    t.integer  "autor_id"
+    t.index ["autor_id"], name: "index_livros_on_autor_id", using: :btree
   end
 
-  add_foreign_key "clientes", "livros", column: "livros_id"
 end

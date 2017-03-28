@@ -41,12 +41,6 @@
     <%= f.text_field :cpf %>
   </div>
 
-<div class="field">
-  <%= f.label :livros_id %><br>
-  <%= f.select :livros_id, options_for_select(Livro.all.map{|m|[m.titulo,
-  m.id]},f.object.livros_id) %>
-</div>
-
   <div class="actions">
     <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
     <%= link_to ' Voltar', clientes_path , class: "btn btn-default " %>

@@ -24,7 +24,7 @@
       <tr>
         <td><%= livro.codigo %></td>
         <td><%= livro.titulo %></td>
-        <td><%= livro.autor %></td>
+        <td><%= livro.autor.nome if livro.autor %></td>
         <td><%= livro.editora %></td>
         <td>R$ <%= livro.preco %></td>
         <td><%= image_tag livro.capa, height:'80', width:'62' %></td> 

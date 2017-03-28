@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :autores
   get 'paginas/index'
 
   get 'paginas/funcionarios'
