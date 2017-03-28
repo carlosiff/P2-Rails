@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'paginas/livros'
 
+  root 'paginas#index'
+
   resources :livros
   resources :clientes
   resources :funcionarios
