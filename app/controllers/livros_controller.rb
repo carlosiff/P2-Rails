@@ -9,12 +9,15 @@ class LivrosController < ApplicationController
 
   def index
     @ptitulo = params[:ptitulo]
+
     filtro = "1=1"
+
+    if not(@ptitulo.nil?)
+      filtro = filtro + " and titulo like '%"+@ptitulo+"%'"
+    end  
+
     @livros = Livro.where(filtro).order("titulo").paginate(page:
       params[:page], per_page: 3)
-    if not(@ptitulo.nil?)
-      filtro = filtro + " and nome like '%"+@ptitulo+"%'"
-    end  
   end
 
   # GET /livros/1

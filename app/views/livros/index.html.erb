@@ -30,7 +30,7 @@
         <td><%= image_tag livro.capa, height:'80', width:'62' %></td> 
         <td><%= link_to ' ', livro , class: "glyphicon glyphicon-blackboard" %></td>
         <td><%= link_to ' ', edit_livro_path(livro) , class: "glyphicon glyphicon-pencil"%></td>
-        <td><%= link_to ' ', livro, method: :delete, data: { confirm: 'Are you sure?' }, class:"glyphicon glyphicon-trash" %></td>
+        <td><%= link_to ' ', livro, method: :delete, data: { confirm: 'Deseja Realmente Excluir?' }, class:"glyphicon glyphicon-trash" %></td>
       </tr>
     <% end %>
   </tbody>

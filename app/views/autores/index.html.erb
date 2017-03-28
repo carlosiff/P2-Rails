@@ -18,9 +18,9 @@
         <td><%= autor.nome %></td>
         <td><%= autor.email %></td>
         <td><%= autor.editora %></td>
-        <td><%= link_to 'Show', autor %></td>
-        <td><%= link_to 'Edit', edit_autor_path(autor) %></td>
-        <td><%= link_to 'Destroy', autor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to ' ', autor , class: "glyphicon glyphicon-blackboard"%></td>
+        <td><%= link_to ' ', edit_autor_path(autor), class: "glyphicon glyphicon-pencil" %></td>
+        <td><%= link_to ' ', autor, method: :delete, data: { confirm: 'Deseja Realmente Excluir?' }, class:"glyphicon glyphicon-trash" %></td>
       </tr>
     <% end %>
   </tbody>
