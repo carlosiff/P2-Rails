@@ -26,7 +26,9 @@
     <%= f.text_field :editora %>
   </div>
 
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+    <%= link_to ' Voltar', clientes_path , class: "btn btn-default " %>
   </div>
 <% end %>

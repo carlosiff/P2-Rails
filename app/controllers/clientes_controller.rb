@@ -12,11 +12,11 @@ class ClientesController < ApplicationController
   def index
     @pnome = params[:pnome]
     filtro = "1=1"
-    @clientes = Cliente.where(filtro).order("nome").paginate(page:
-      params[:page], per_page: 3)
     if (@pnome)
       filtro = filtro + " and nome like '%"+@pnome.strip+"%'"
     end  
+    @clientes = Cliente.where(filtro).order("nome").paginate(page:
+      params[:page], per_page: 3)
   end
   
   # GET /clientes/1

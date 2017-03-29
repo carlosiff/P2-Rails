@@ -7,6 +7,16 @@ class AutoresController < ApplicationController
     @autores = Autor.all
   end
 
+  def index
+    @pnome = params[:pnome]
+    filtro = "1=1"
+    if (@pnome)
+      filtro = filtro + " and nome like '%"+@pnome.strip+"%'"
+    end  
+    @autores = Autor.where(filtro).order("nome").paginate(page:
+      params[:page], per_page: 3)
+  end
+
   # GET /autores/1
   # GET /autores/1.json
   def show

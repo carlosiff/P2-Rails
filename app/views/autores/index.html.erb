@@ -2,6 +2,11 @@
 
 <h1>Autores</h1>
 
+<hr/>
+  <%= render 'formbusca' %>
+<hr/>
+
+
 <table>
   <thead>
     <tr>
@@ -29,3 +34,6 @@
 <br>
 
 <%= link_to 'New Autor', new_autor_path %>
+<%= will_paginate @funcionarios, previous_label: "Anterior", next_label: "Próxima" %>
+<br/>
+

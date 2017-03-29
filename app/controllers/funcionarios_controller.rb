@@ -10,11 +10,11 @@ class FuncionariosController < ApplicationController
   def index
     @pnome = params[:pnome]
     filtro = "1=1"
-    @funcionarios = Funcionario.where(filtro).order("nome").paginate(page:
-      params[:page], per_page: 3)
     if not(@pnome.nil?)
       filtro = filtro + " and nome like '%"+@pnome+"%'"
-    end  
+    end 
+    @funcionarios = Funcionario.where(filtro).order("nome").paginate(page:
+      params[:page], per_page: 3) 
   end
 
   # GET /funcionarios/1
